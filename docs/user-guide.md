@@ -1,6 +1,6 @@
 # 绘序使用手册
 
-v0.1.0 已实现，运行或部署状态见 [README](../README.md) 和 [开发进度](progress.md)。[验证记录](verification.md)说明实际覆盖。
+v0.1.0 已上线：[打开绘序](https://mermaid-live-editor-gamma.vercel.app/)。运行方式见 [README](../README.md)，线上验收与版本状态见 [开发进度](progress.md)，实际验证覆盖见 [验证记录](verification.md)。
 
 ## 从一张流程图开始
 

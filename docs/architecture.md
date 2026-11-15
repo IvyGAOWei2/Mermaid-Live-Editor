@@ -38,4 +38,4 @@ v0.1.0 使用 React 18、TypeScript 5.9、Vite 8.3.8、Mermaid 12.3、CodeMirror
 
 `npm test` 运行 Vitest，`npm run build` 先 TypeScript 检查再 Vite 构建。GitHub Actions 在 push / PR 使用 Node 22 执行安装、测试和构建；`vercel.json` 声明 Vite、`dist` 与安全响应头。Windows 脚本选择独立 Node 并保留原 PATH。
 
-本地真实浏览器已验证核心流程；[验证记录](verification.md)明确未覆盖场景。Vercel 登录及项目连接已完成，继续进行 Preview 验收；实际 GitHub 和部署状态见 [进度](progress.md)。
+本地真实浏览器已验证核心流程，GitHub CI 已成功，Vercel 已连接仓库并自动部署；[验证记录](verification.md)区分本地和线上检查及未覆盖场景。首次开发分支推送被 Vercel 归为 production，项目 Production Branch 仍显示 `main`，未手动更改；部署成功不表示代码已经合并。实际 PR、线上验收与部署状态见 [进度](progress.md)。

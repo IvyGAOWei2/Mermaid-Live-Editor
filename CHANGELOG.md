@@ -1,8 +1,8 @@
 # 变更记录
 
-## [未发布] v0.1.0 — 2026-11-15
+## v0.1.0 — 2026-11-15（已部署）
 
-功能已实现并完成本地关键验证，尚待 Preview 验收与正式发布。
+功能已实现并上线：[打开绘序](https://mermaid-live-editor-gamma.vercel.app/)。本地关键检查、GitHub CI 与关键线上验收已通过；用户体验验收、PR 和版本发布状态见 [开发进度](docs/progress.md)。
 
 ### 新增
 
@@ -18,4 +18,4 @@
 
 ### 验证与发布状态
 
-本地关键检查已执行，覆盖与未验证场景见 [验证记录](docs/verification.md)。GitHub 提交 / PR、Preview 和正式部署状态见 [开发进度](docs/progress.md)，不将本地完成等同正式发布。
+本地 5 个测试文件、60 项测试、TypeScript 和生产构建通过，依赖审计为 0 漏洞；GitHub push CI 成功。Vercel 已自动部署 READY，正式别名 HTTP 200，安全响应头及中文标题已确认。线上真实浏览器已验证渲染、错误修复、保存刷新恢复、大纲和帮助，验收期间控制台无 error / warn。覆盖与未验证场景见 [验证记录](docs/verification.md)；开发分支尚未合并，手机及多浏览器仍待验证。

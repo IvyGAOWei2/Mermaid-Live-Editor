@@ -1,6 +1,6 @@
 # v0.1 验证记录
 
-日期：2026-11-15（Pacific/Auckland）。项目独立 Node 22.23.5；真实浏览器检查在本地 `127.0.0.1:5174` 进行。本记录区分实际操作、单元测试和未覆盖场景。
+日期：2026-11-15（Pacific/Auckland）。项目独立 Node 22.23.5；核心浏览器检查在本地 `127.0.0.1:5174` 进行，线上另列已确认的检查。本记录区分实际操作、单元测试和未覆盖场景。
 
 ## 自动检查
 
@@ -8,11 +8,11 @@
 - TypeScript 检查通过，包含于 `npm run build`。
 - Vite 生产构建通过，生成 `dist/`。
 - npm 依赖审计：0 漏洞。
-- GitHub Actions 已配置；本地结果不等于远程 CI 已执行。
+- GitHub Actions push 检查已完成并成功：[运行 43690767568](https://github.com/IvyGAOWei2/Mermaid-Live-Editor/actions/runs/43690767568)。
 
 单元测试覆盖大纲层级、边界、文件规范化与命名、草稿数据和存储异常、渲染类型与 SVG 清理等；jsdom 测试不代表所有浏览器和真实 Mermaid 布局均已覆盖。
 
-## 已执行的真实浏览器检查
+## 已执行的本地真实浏览器检查
 
 - 中文流程图、思维导图显示；修改文字后预览更新。
 - 错误保留上次成功图形；修复后重新渲染。
@@ -31,8 +31,29 @@
 - 已检查较窄电脑窗口；尚未使用真实手机和触摸操作验证。
 - 尚未完成多浏览器、触摸屏、超大图性能和完整屏幕阅读器测试。
 - 存储被禁用、配额耗尽、损坏草稿等主要由单元测试覆盖，未在各浏览器真实异常环境逐一检查。
-- Vercel Preview 尚在准备；部署域名的安全响应头、资源加载、本地保存和跨设备访问待确认。
+- 关键线上验收已完成；尚待用户日常体验验收。
+- 跨设备访问和多浏览器操作仍需补充，不用单个浏览器结果代替全部设备验收。
+
+## 已确认的部署检查
+
+- Vercel 项目 `ogc9/mermaid-live-editor` 已连接 GitHub，部署为 READY。
+- [正式别名](https://mermaid-live-editor-gamma.vercel.app/) 返回 HTTP 200，HTML 含中文标题。
+- 响应头包含预期 CSP 与 `X-Content-Type-Options: nosniff`。
+- 部署来自开发分支提交 `3b2f4f5`；Vercel 的 production 标记不代表 GitHub PR 已创建或合并。
+
+## 已执行的线上真实浏览器检查
+
+在正式别名 [mermaid-live-editor-gamma.vercel.app](https://mermaid-live-editor-gamma.vercel.app/) 已完成：
+
+- 初始中文流程图正常加载并渲染。
+- 错误代码保留成功图形，修复后恢复正常预览。
+- 保存后刷新，代码与本地草稿保留。
+- 中文及包含引号、方括号的大纲转为思维导图并显示。
+- 中文语法帮助面板正常打开。
+- 本次线上验收的 Console error / warn 均为空。
+
+源码往返、SVG 下载、快速连改等更完整场景已在本地验证，不能据此宣称所有线上设备均已覆盖。
 
 ## 部署前复核
 
-在 Node ≥22.12 执行 `npm ci`、`npm test`、`npm run build`；打开 Preview，按 [需求验收](requirements.md)检查中文编辑、错误恢复、大纲、源文件往返和 SVG。Preview 验收后再决定合并与生产发布；只有部署实际完成才标记已上线。
+后续每次改动在 Node 22.12+ 的 22.x 执行 `npm ci`、`npm test`、`npm run build`；打开实际部署地址，按 [需求验收](requirements.md)检查中文编辑、错误恢复、大纲、源文件往返和 SVG。检查通过后再决定是否合并 PR；“已上线”不代表所有设备场景都已验收。

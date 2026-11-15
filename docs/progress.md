@@ -2,14 +2,15 @@
 
 ## 当前版本
 
-**绘序 v0.1.0：功能已实现，本地关键验证完成，待部署验收。** 日期：2026-11-15（Pacific/Auckland）。没有正式生产网址，不代表已发布。
+**绘序 v0.1.0 已上线，关键线上验收完成。** 日期：2026-11-15（Pacific/Auckland）。访问：[mermaid-live-editor-gamma.vercel.app](https://mermaid-live-editor-gamma.vercel.app/)。本地关键检查和远程 CI 已通过；待用户体验验收，PR 尚未创建或合并。
 
 ## 环境与仓库
 
 - 初始目录为空 Git 仓库，没有父级项目指令或用户已有代码；先写入需求与约定，再实施。
 - 系统 Node 18.20.8 / npm 10.8.2 / Git 2.45.2；现采用独立 Node 22.23.5（`.local/runtime`，不提交），工具链要求 ≥22.12。
 - 复用已有空的**公共**仓库 [IvyGAOWei2/Mermaid-Live-Editor](https://github.com/IvyGAOWei2/Mermaid-Live-Editor)，已配置 `origin`。
-- `main` 文档基线 `0f259bf` 已推送；开发分支 `codex/v0.1-editor`。功能提交与 PR 状态待本轮最终检查后记录。
+- `main` 仍为文档基线 `0f259bf`；功能提交 [`3b2f4f5`](https://github.com/IvyGAOWei2/Mermaid-Live-Editor/commit/3b2f4f5) 已推送 `origin/codex/v0.1-editor`，尚未合并到 `main`。
+- PR 尚未创建。GitHub 连接器创建 PR 返回 403；读取本机凭据再调用 REST 的备用方案被自动审批拒绝，未继续使用。官方 GitHub CLI 已安装于忽略目录 `.local/gh-cli`，正在等待正常设备登录授权，不记录授权码或令牌。
 
 ## 已完成
 
@@ -22,12 +23,15 @@
 - 严格 Mermaid 配置与 SVG 清理；图表不上传，无 AI API 或后端。
 - 中文项目文档、Windows 启动 / 检查脚本、GitHub CI、Vercel 静态部署及安全响应头配置。
 - 本地单元测试、类型检查、生产构建和浏览器核心验证；依赖审计为 0 漏洞。见 [verification.md](verification.md)。
+- GitHub push 检查已完成并成功：[Actions 43690767568](https://github.com/IvyGAOWei2/Mermaid-Live-Editor/actions/runs/43690767568)。
+- Vercel 项目与 GitHub 自动连接，部署 READY；线上别名 HTTP 200，CSP / `nosniff` 响应头和中文标题已确认。
+- 正式别名的真实浏览器已验证中文流程图、错误保留与修复、保存后刷新恢复、中文及引号 / 方括号大纲转换为思维导图、帮助面板；本次线上验收控制台 error / warn 为空。
 
 ## 进行中与待办
 
-- 最终回归通过：60 项测试、TypeScript、生产构建；正在提交功能与建立 PR。
-- Vercel 登录、项目创建与 GitHub 连接已完成；继续 Preview → PR 验收 → 合并与正式部署。
-- 补测真实小屏、更多浏览器、正式域名的 CSP 和保存。
+- 本地最终回归通过：5 个测试文件、60 项测试、TypeScript、生产构建。
+- 用户体验验收；完成 GitHub CLI 设备授权后建立 PR，保留待审状态，审阅后再决定合并 `main`。
+- 补测真实手机 / 触摸和更多浏览器；549px 电脑窗口已验证，不能代替手机真机。
 
 ## 验证范围与限制
 
@@ -37,7 +41,11 @@
 
 ## 部署状态
 
-用户已通过 Vercel 官方设备登录完成授权。Vercel CLI 65.16 已创建 `ogc9/mermaid-live-editor` 并成功连接 GitHub 仓库；尚未生成部署网址。部署输入检查已确认排除 `.env.local`、`.git`、`.local`、依赖与测试文件。应用无需任何环境密钥；CLI 生成的本地认证环境文件不提交、不上传。
+用户通过 Vercel 官方设备登录完成授权，CLI 65.16 已创建 `ogc9/mermaid-live-editor` 并自动连接 GitHub。开发分支推送后部署达到 READY，正式别名 [https://mermaid-live-editor-gamma.vercel.app/](https://mermaid-live-editor-gamma.vercel.app/) 返回 HTTP 200，CSP 和 `X-Content-Type-Options: nosniff` 正确，页面含中文标题。线上 UI、渲染、错误恢复、本地保存恢复、大纲和帮助的关键验收已完成。
+
+Vercel 将首次 Git 推送归为 production；项目 Production Branch 仍显示 `main`，没有手工变更，也没有合并开发分支。后续保留 PR → 验收 → 决定合并的流程。
+
+部署输入已确认排除 `.env.local`、`.git`、`.local`、依赖和测试文件。应用不需要环境密钥；CLI 生成的本地认证环境文件不提交、不上传。无需用户重新导入或手动配置 Vercel。
 
 ## 已知使用限制
 
@@ -48,4 +56,4 @@
 
 ## 下一步
 
-按 [部署说明](deployment.md)使用 Node 22、登录 Vercel并导入仓库，完成 Preview 验收后正式发布。后续继续分支 → 检查 → 提交推送 → PR；连接 GitHub 不等于同步本地文件。
+用户体验验收 → 创建并审阅 PR → 决定合并 `main`；补充手机与多浏览器验证。后续继续 Node 22 开发分支 → 检查 → 提交推送 → PR → 部署验收。Vercel 已配置，后续推送可触发部署；GitHub 连接不等于同步本地文件。本轮仅更新文档，沿用代码提交 `3b2f4f5` 已成功的本地与远程检查，不重复运行未变化的代码测试。

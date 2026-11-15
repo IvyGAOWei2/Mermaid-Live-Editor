@@ -2,7 +2,7 @@
 
 一个中文、本地优先的 Mermaid 个人编辑器。粘贴外部 AI 生成的代码，修改文字和结构，实时预览流程图或思维导图，边编辑边查语法，再保存源码或 SVG。
 
-**v0.1.0 已实现并完成本地关键验证，尚未部署正式站点。** 复用已有公共 [GitHub 仓库](https://github.com/IvyGAOWei2/Mermaid-Live-Editor)；提交、PR 和部署的准确状态见 [开发进度](docs/progress.md)。
+**v0.1.0 已实现并上线：[打开绘序](https://mermaid-live-editor-gamma.vercel.app/)。** 本地检查、GitHub CI 和关键线上验收已通过；用户体验验收与 PR 状态见 [开发进度](docs/progress.md)。复用已有公共 [GitHub 仓库](https://github.com/IvyGAOWei2/Mermaid-Live-Editor)。
 
 ## 当前功能
 
@@ -48,7 +48,7 @@ npm run preview
 
 已准备 GitHub Actions 和 `vercel.json`。推荐：开发分支 → 检查 → 明确提交推送 → PR / Vercel Preview → 验收 → 合并与正式发布。连接 GitHub 不会实时同步本地文件。
 
-Vercel 项目 `ogc9/mermaid-live-editor` 已创建并连接 GitHub。配置为 Vite、Node 22、构建 `npm run build`、输出 `dist`，无需应用环境变量。正在完成预览部署与验收；真实网址见 [开发进度](docs/progress.md)。步骤见 [部署说明](docs/deployment.md)。
+Vercel 项目 `ogc9/mermaid-live-editor` 已自动连接 GitHub 并完成部署；[线上地址](https://mermaid-live-editor-gamma.vercel.app/)返回 HTTP 200。配置为 Vite、Node 22、构建 `npm run build`、输出 `dist`，无需应用环境变量。当前部署来自开发分支，Vercel 将首次 Git 推送归为 production；这不代表开发分支已合并到 `main`。后续流程见 [部署说明](docs/deployment.md)。
 
 ## 文档
 
