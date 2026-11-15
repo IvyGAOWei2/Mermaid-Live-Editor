@@ -16,9 +16,9 @@
 
 ## 开发与检查
 
-建议 Node.js 22（本机初始为 18.20.8；Node 18 已结束支持），使用 npm 和提交的 `package-lock.json`。
+使用 Node.js 22.12+ 的 22.x（本机系统仍为 18.20.8，工作区独立运行时在 `.local/runtime`），使用 npm 和提交的 `package-lock.json`。Windows 可使用 `scripts/dev.ps1` 和 `scripts/check.ps1`，不提交独立运行时。
 
-预定标准命令（以 `package.json` 实际脚本为准）：
+标准命令：
 
 ```bash
 npm ci
@@ -35,6 +35,7 @@ npm run build
 - 推荐流程：开发分支 → 检查 → 提交并推送 GitHub → PR / Vercel Preview → 验收 → 正式发布。
 - GitHub 连接不是文件实时同步；必须明确提交和推送。
 - 未执行的提交、推送、预览或部署不得报告成功。认证与部署缺口记录在进度中，不要求用户在聊天粘贴密钥。
+- 本工作区可使用 `.local/gh-cli/bin/gh.exe`；GitHub / Vercel 认证使用官方登录流程，不提取或打印令牌，认证文件和独立 CLI 不提交。
 
 ## 文档维护
 
