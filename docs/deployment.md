@@ -17,7 +17,7 @@ npm run preview
 
 ## GitHub 仓库与提交
 
-1. 使用你自己的 GitHub 账号建立独立仓库，建议先设为 Private。仓库不要包含个人图表或密钥。
+1. 当前已复用公共仓库 `IvyGAOWei2/Mermaid-Live-Editor`，保留其原有可见性。仓库只放应用代码与演示内容，不包含个人图表或密钥。
 2. 将仓库 HTTPS 地址设置为本地 `origin`。首次连接前先执行 `git remote -v`，已有地址时不要重复添加或直接改写。
 3. 使用 `codex/` 开发分支。检查 diff，明确选择源码、锁文件、配置与文档进行提交；不提交 `node_modules/`、`dist/` 或本地草稿。
 4. 推送开发分支并建立 PR。GitHub 登录请用浏览器、Git Credential Manager 或受支持的 CLI 登录流程；不要把令牌粘贴到聊天、命令参数或文件中。
@@ -27,6 +27,8 @@ npm run preview
 ## Vercel 连接
 
 在 Vercel 中导入该 GitHub 仓库，选择正确账户与仓库访问权限，使用以下设置：
+
+当前项目 `ogc9/mermaid-live-editor` 已创建、已连接上述 GitHub 仓库，无需重复导入。
 
 - Framework Preset：Vite。
 - Root Directory：仓库根目录。

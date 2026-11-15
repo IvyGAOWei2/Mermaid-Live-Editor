@@ -16,9 +16,9 @@
 
 ## 开发与检查
 
-建议 Node.js 22（本机初始为 18.20.8；Node 18 已结束支持），使用 npm 和提交的 `package-lock.json`。
+使用 Node.js 22.12+ 的 22.x（本机系统仍为 18.20.8，工作区独立运行时在 `.local/runtime`），使用 npm 和提交的 `package-lock.json`。Windows 可使用 `scripts/dev.ps1` 和 `scripts/check.ps1`，不提交独立运行时。
 
-预定标准命令（以 `package.json` 实际脚本为准）：
+标准命令：
 
 ```bash
 npm ci
